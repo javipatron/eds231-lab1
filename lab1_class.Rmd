@@ -25,16 +25,15 @@ We have to decide which New York Times articles we are interested in examining. 
 
 We'll send a query to the NY Times API using a URL that contains information about the articles we'd like to access.
 
-fromJSON() is a wrapper function that handles our request and the API response. We'll use it to create an object,t, with the results of our query. The flatten = T argument converts from the nested JSON format to an R-friendlier form.
+fromJSON() is a wrapper function that handles our request and the API response. We'll use it to create an object, t, with the results of our query. The flatten = T argument converts from the nested JSON format to an R-friendlier form.
 
 ```{r api, eval = FALSE}
-​
+
 # t <- fromJSON("http://api.nytimes.com/svc/search/v2/articlesearch.json?q=haaland&api-key=",API_KEY,flatten = TRUE) 
 
 #create the query url
-url <- paste("http://api.nytimes.com/svc/search/v2/articlesearch.json?q=haaland&api-key=",
-             API_KEY, sep ="")
-​
+url <- paste("http://api.nytimes.com/svc/search/v2/articlesearch.json?q=haaland&api-key=", API_KEY, sep ="")
+
 #send the request, receive the response, and flatten
 t <- fromJSON(url, flatten = T)
 ```
@@ -47,6 +46,7 @@ t <- data.frame(t)
 
 # how big is it?
 dim(t)
+
 # what variables are we working with?
 names(t)
 #t <- readRDS("nytDat.rds") #in case of API emergency :)
@@ -116,11 +116,10 @@ We converted each returned JSON object into a data frame
 saveRDS(nyt_df, "nyt_df.rds")
 ```
 
-Load the preconstructed nytDat so you can follow along.
+Load the pre-constructed nytDat so you can follow along.
 
 ```{r article-type}
 nytDat <- readRDS("nyt_df.rds")
-
 ```
 
 ```{r date-plot}
@@ -132,28 +131,23 @@ nytDat %>%
   ggplot() +
   geom_bar(aes(x=reorder(pubDay, count), y=count), stat="identity") +
   coord_flip()
+
 ```
 
 The New York Times doesn't make full text of the articles available through the API. But we can use the first paragraph of each article.
 
 ```{r plot_frequencies}
-
 names(nytDat)
 paragraph <- names(nytDat)[6] # The 6th column
-
 
 tokenized <- nytDat |>
   unnest_tokens(word, paragraph) #the first word of the paragraph 
 
-
 tokenized[,"word"]
-
-
 ```
 
 
 ```{r word_frequencies}
-
 tokenized |> 
   count(word, sort =T) |> 
   filter(n > 100) |> 
@@ -161,7 +155,6 @@ tokenized |>
   ggplot(aes(n, word)) +
   geom_col() +
   labs(y = NULL)
-
 ```
 
 Uh oh, who knows what we need to do here?
@@ -219,4 +212,6 @@ tokenized |>
 
 -   Make some (at least 3) transformations to the corpus (add context-specific stopword(s), stem a key term and its variants, remove numbers)
 
-4.  Recreate the publications per day and word frequency plots using the headlines variable (response.docs.headline.main). Compare the distributions of word frequencies between the first paragraph and headlines. Do you see any difference?
+4.  Recreate the publications per day and word frequency plots using the headlines variable (response.docs.headline.main). Compare the distributions of word frequencies between the first paragraph and headlines. Do you see any difference? (Here you will have fewer lines, but what are the most frequent words)
+
+
