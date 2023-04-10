@@ -1,0 +1,23 @@
+---
+title: "Lab 1: NYT API"
+author: "Javier Patrón"
+date: "2023-04-05"
+output: html_document
+---
+
+
+## Assignment (Due Tuesday 4/11 11:59pm)
+
+1.  Create a free New York Times account (<https://developer.nytimes.com/get-started>)
+
+2.  Pick an interesting environmental key word(s) and use the {jsonlite} package to query the API. Pick something high profile enough and over a large enough time frame that your query yields enough articles for an interesting examination.
+
+
+
+3.  Recreate the publications per day and word frequency plots using the first paragraph.  This time filter on the response.docs.news_desk variable to winnow out irrelevant results.
+
+-   Make some (at least 3) transformations to the corpus (add context-specific stopword(s), stem a key term and its variants, remove numbers)
+
+4.  Recreate the publications per day and word frequency plots using the headlines variable (response.docs.headline.main). Compare the distributions of word frequencies between the first paragraph and headlines. Do you see any difference? (Here you will have fewer lines, but what are the most frequent words)
+
+
