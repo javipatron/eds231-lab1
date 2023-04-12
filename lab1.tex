@@ -1,0 +1,1152 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Lab 1: NYT API},
+  pdfauthor={Javier Patrón},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Lab 1: NYT API}
+\author{Javier Patrón}
+\date{2023-04-05}
+
+\begin{document}
+\maketitle
+
+\hypertarget{assignment-due-tuesday-411-1159pm}{%
+\section{Assignment (Due Tuesday 4/11
+11:59pm)}\label{assignment-due-tuesday-411-1159pm}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(jsonlite) }\CommentTok{\#convert results from API queries into R{-}friendly formats }
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching packages --------------------------------------- tidyverse 1.3.2 --
+## v ggplot2 3.4.1      v purrr   0.3.4 
+## v tibble  3.1.8      v dplyr   1.0.10
+## v tidyr   1.2.0      v stringr 1.4.0 
+## v readr   2.1.2      v forcats 0.5.1 
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter()  masks stats::filter()
+## x purrr::flatten() masks jsonlite::flatten()
+## x dplyr::lag()     masks stats::lag()
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidytext) }\CommentTok{\#text data management and analysis}
+\FunctionTok{library}\NormalTok{(ggplot2) }\CommentTok{\#plot word frequencies and publication dates\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{create-a-free-new-york-times-account-httpsdeveloper.nytimes.comget-started}{%
+\subsubsection{\texorpdfstring{1. Create a free New York Times account
+(\url{https://developer.nytimes.com/get-started})}{1. Create a free New York Times account (https://developer.nytimes.com/get-started)}}\label{create-a-free-new-york-times-account-httpsdeveloper.nytimes.comget-started}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create a APP and extract your API\_Key}
+\NormalTok{API\_key }\OtherTok{\textless{}{-}} \StringTok{"qDJ3MFOJIru3xSAbeTwn3l3NMZGjTYP8"}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{pick-an-interesting-environmental-key-words-and-use-the-jsonlite-package-to-query-the-api.-pick-something-high-profile-enough-and-over-a-large-enough-time-frame-that-your-query-yields-enough-articles-for-an-interesting-examination.}{%
+\subsubsection{2. Pick an interesting environmental key word(s) and use
+the \{jsonlite\} package to query the API. Pick something high profile
+enough and over a large enough time frame that your query yields enough
+articles for an interesting
+examination.}\label{pick-an-interesting-environmental-key-words-and-use-the-jsonlite-package-to-query-the-api.-pick-something-high-profile-enough-and-over-a-large-enough-time-frame-that-your-query-yields-enough-articles-for-an-interesting-examination.}}
+
+Option 1) Extract the information through the API of the New York Times
+webpage
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# \#create the query url}
+\CommentTok{\# url \textless{}{-} paste("https://api.nytimes.com/svc/search/v2/articlesearch.json?begin\_date=20221201\&end\_date=20230410\&q=blue\%20carbon\&api{-}key", API\_key, sep ="")}
+\CommentTok{\# }
+\CommentTok{\# \#send the request, receive the response, and flatten}
+\CommentTok{\# t \textless{}{-} fromJSON(url, flatten = T)}
+\CommentTok{\# }
+\CommentTok{\# \#Create a df with the extracted list}
+\CommentTok{\# df\_t \textless{}{-} data.frame(t)}
+\end{Highlighting}
+\end{Shaded}
+
+Option 2) \#Extracting the information through a workaround seen in
+class
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# string \textless{}{-} "blue$carbon" \# Need to use $ to string together separate terms }
+\CommentTok{\# }
+\CommentTok{\# begin\_date \textless{}{-} "20200101"}
+\CommentTok{\# end\_date \textless{}{-} "20230410"}
+\CommentTok{\# }
+\CommentTok{\# \#construct the query url using API operators}
+\CommentTok{\# baseurl \textless{}{-} paste0("http://api.nytimes.com/svc/search/v2/articlesearch.json?q=",string,"\&begin\_date=",begin\_date,"\&end\_date=",end\_date,"\&facet\_filter=true\&api{-}key=",API\_key, sep="")}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# initialQuery \textless{}{-} fromJSON(baseurl)}
+\CommentTok{\# }
+\CommentTok{\# maxPages \textless{}{-} round((initialQuery$response$meta$hits[1]/10) {-}1) \# 20 pages of results}
+\CommentTok{\# pages \textless{}{-} list()}
+\CommentTok{\# }
+\CommentTok{\# \#loop}
+\CommentTok{\# for(i in 0:maxPages)\{}
+\CommentTok{\#   nytSearch \textless{}{-} fromJSON(paste0(baseurl, "\&page=", i), flatten = TRUE) \%\textgreater{}\% data.frame() }
+\CommentTok{\#   message("Retrieving page ", i) \# This is to see how the loop is going}
+\CommentTok{\#   pages[[i+1]] \textless{}{-} nytSearch }
+\CommentTok{\#   Sys.sleep(20) \#Pauses the request to ask for the desired information to the API}
+\CommentTok{\# \}}
+\CommentTok{\# }
+\CommentTok{\# \# Eliminate the last incomplete article}
+\CommentTok{\# pages \textless{}{-} pages[1:37]}
+\end{Highlighting}
+\end{Shaded}
+
+We converted each returned JSON object into a data frame. This RDS can
+be used in case you need to re-run this code to your environment
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#saveRDS(pages, "pages.rds")}
+\end{Highlighting}
+\end{Shaded}
+
+Load the pre-constructed blue\_carbon\_df so you can follow along.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Load the pre{-}constructed nytDat so you can follow along.}
+\NormalTok{pages }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}\StringTok{"pages.rds"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create a data frame with all the 370 articles}
+\NormalTok{blue\_carbon\_df }\OtherTok{\textless{}{-}} \FunctionTok{do.call}\NormalTok{(}\StringTok{"bind\_rows"}\NormalTok{, pages )}
+
+\CommentTok{\# Eliminate the articles that dont have any NYT department}
+\NormalTok{blue\_carbon\_df }\OtherTok{\textless{}{-}}\NormalTok{ blue\_carbon\_df[}\FunctionTok{nchar}\NormalTok{(blue\_carbon\_df}\SpecialCharTok{$}\NormalTok{response.docs.news) }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{recreate-the-publications-per-day-and-word-frequency-plots-using-the-first-paragraph.-this-time-filter-on-the-response.docs.news_desk-variable-to-winnow-out-irrelevant-results.}{%
+\subsubsection{3) Recreate the publications per day and word frequency
+plots using the first paragraph. This time filter on the
+response.docs.news\_desk variable to winnow out irrelevant
+results.}\label{recreate-the-publications-per-day-and-word-frequency-plots-using-the-first-paragraph.-this-time-filter-on-the-response.docs.news_desk-variable-to-winnow-out-irrelevant-results.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Find what are the TOP NYT departments related to articles that have the string Blue Carbon}
+\NormalTok{blue\_carbon\_df }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(}\AttributeTok{NYT\_dept =}\NormalTok{ response.docs.news\_desk) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count=}\FunctionTok{n}\NormalTok{()) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(count }\SpecialCharTok{\textgreater{}=} \DecValTok{5}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\FunctionTok{reorder}\NormalTok{(NYT\_dept, count), }\AttributeTok{y=}\NormalTok{count, }\AttributeTok{fill =}\NormalTok{ count }\SpecialCharTok{\textgreater{}=} \DecValTok{30}\NormalTok{), }
+           \AttributeTok{stat=} \StringTok{"identity"}\NormalTok{, }\AttributeTok{color =} \StringTok{"gray20"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{coord\_flip}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"gray90"}\NormalTok{, }\StringTok{"lightcoral"}\NormalTok{), }
+                    \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Count \textless{} 30"}\NormalTok{, }\StringTok{"Count \textgreater{}= 30"}\NormalTok{), }
+                    \AttributeTok{name =} \StringTok{"Count"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Number of NYT Articles by Department"}\NormalTok{,}
+       \AttributeTok{subtitle =} \StringTok{"2020{-}2023"}\NormalTok{,}
+       \AttributeTok{caption =} \StringTok{"String: \textquotesingle{}Blue Carbon\textquotesingle{}"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"News Desk"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Count"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lab1_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+Graph the dates on which the Articles where released
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Identify the dates on which NYT articles containing the phrase "blue carbon" were most frequently published.}
+\NormalTok{blue\_carbon\_df }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{pubDay =} \FunctionTok{gsub}\NormalTok{(}\StringTok{"T.*"}\NormalTok{,}\StringTok{""}\NormalTok{,response.docs.pub\_date)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(pubDay) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count=}\FunctionTok{n}\NormalTok{()) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(count }\SpecialCharTok{\textgreater{}=}\DecValTok{3}\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{ggplot}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\FunctionTok{reorder}\NormalTok{(pubDay, count), }\AttributeTok{y=}\NormalTok{count, }\AttributeTok{fill =}\NormalTok{ count }\SpecialCharTok{\textgreater{}=} \DecValTok{5}\NormalTok{), }
+           \AttributeTok{stat=}\StringTok{"identity"}\NormalTok{, }\AttributeTok{color =} \StringTok{"gray90"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"gray30"}\NormalTok{, }\StringTok{"lightblue"}\NormalTok{), }
+                    \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Count \textless{} 5"}\NormalTok{, }\StringTok{"Count \textgreater{}= 5"}\NormalTok{), }
+                    \AttributeTok{name =} \StringTok{"Count"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{coord\_flip}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Dates with Highest Number of NYT Articles containing \textquotesingle{}blue carbon\textquotesingle{}"}\NormalTok{,}
+       \AttributeTok{subtitle =} \StringTok{"2020{-}2023"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Released Date"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Count"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lab1_files/figure-latex/unnamed-chunk-10-1.pdf}
+
+\hypertarget{text-transformations}{%
+\subsection{Text Transformations}\label{text-transformations}}
+
+\hypertarget{make-some-at-least-3-transformations-to-the-corpus-add-context-specific-stopwords-stem-a-key-term-and-its-variants-remove-numbers}{%
+\subsubsection{Make some (at least 3) transformations to the corpus (add
+context-specific stopword(s), stem a key term and its variants, remove
+numbers)}\label{make-some-at-least-3-transformations-to-the-corpus-add-context-specific-stopwords-stem-a-key-term-and-its-variants-remove-numbers}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lead\_paragraph }\OtherTok{\textless{}{-}} \FunctionTok{names}\NormalTok{(blue\_carbon\_df)[}\DecValTok{6}\NormalTok{] }\CommentTok{\# The 6th column for the lead paragraph}
+
+\CommentTok{\# Create new Data Frames with the all the words of the lead paragraph section.}
+\NormalTok{df\_paragraph }\OtherTok{\textless{}{-}}\NormalTok{ blue\_carbon\_df }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{unnest\_tokens}\NormalTok{(word, lead\_paragraph) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{select}\NormalTok{(}\StringTok{"word"}\NormalTok{)}
+
+\CommentTok{\# Create a graph with the most common words}
+\NormalTok{df\_paragraph }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(word, }\AttributeTok{sort =}\NormalTok{ T) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(n }\SpecialCharTok{\textgreater{}} \DecValTok{75}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{word =} \FunctionTok{reorder}\NormalTok{(word, n)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{reorder}\NormalTok{(word, n), }\AttributeTok{y =}\NormalTok{ n, }\AttributeTok{fill =}\NormalTok{ n }\SpecialCharTok{\textgreater{}=} \DecValTok{400}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{, }\AttributeTok{color =} \StringTok{"gray20"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{coord\_flip}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"gray80"}\NormalTok{, }\StringTok{"lightcoral"}\NormalTok{), }
+                    \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Count \textless{} 400"}\NormalTok{, }\StringTok{"Count \textgreater{}= 400"}\NormalTok{), }
+                    \AttributeTok{name =} \StringTok{"Count"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title=} \StringTok{"Frequency of Words in Blue Carbon{-}Related Terms in NYT Articles"}\NormalTok{,}
+       \AttributeTok{subtitle=} \StringTok{"A Text Analysis of Articles Published between 2020 and 2023"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Word"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Count"}\NormalTok{,}
+       \AttributeTok{caption =} \StringTok{"NYT API"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lab1_files/figure-latex/unnamed-chunk-11-1.pdf} As we
+can see in this graph the most common words are pretty irrelevant. That
+why we need to do some transformations.
+
+\hypertarget{transformation-1}{%
+\subsubsection{Transformation \#1}\label{transformation-1}}
+
+Make the first transformation and delete the words that are not helpful
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Using the Data Frame called "stop\_words"}
+\FunctionTok{data}\NormalTok{(stop\_words)}
+\NormalTok{stop\_words}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1,149 x 2
+##    word        lexicon
+##    <chr>       <chr>  
+##  1 a           SMART  
+##  2 a's         SMART  
+##  3 able        SMART  
+##  4 about       SMART  
+##  5 above       SMART  
+##  6 according   SMART  
+##  7 accordingly SMART  
+##  8 across      SMART  
+##  9 actually    SMART  
+## 10 after       SMART  
+## # ... with 1,139 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{clean\_paragraph }\OtherTok{\textless{}{-}}\NormalTok{ df\_paragraph }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{anti\_join}\NormalTok{(stop\_words)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Joining, by = "word"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{clean\_paragraph }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(word, }\AttributeTok{sort =}\NormalTok{ T) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(n }\SpecialCharTok{\textgreater{}} \DecValTok{13}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{word =} \FunctionTok{reorder}\NormalTok{(word, n)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{reorder}\NormalTok{(word, n), }\AttributeTok{y =}\NormalTok{ n, }\AttributeTok{fill =}\NormalTok{ n }\SpecialCharTok{\textgreater{}=} \DecValTok{25}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{, }\AttributeTok{color =} \StringTok{"gray20"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{coord\_flip}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"gray80"}\NormalTok{, }\StringTok{"lightcoral"}\NormalTok{), }
+                    \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Count \textless{} 25"}\NormalTok{, }\StringTok{"Count \textgreater{}= 25"}\NormalTok{), }
+                    \AttributeTok{name =} \StringTok{"Count"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title=} \StringTok{"Frequency of Words in Blue Carbon{-}Related Terms in NYT Articles"}\NormalTok{,}
+       \AttributeTok{subtitle=} \StringTok{"A Text Analysis of Articles Published between 2020 and 2023"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Word"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Count"}\NormalTok{,}
+       \AttributeTok{caption =} \StringTok{"First Transformation: stopword removal"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'here’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <e2>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <80>
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+## conversion failure on 'it’s' in 'mbcsToSbcs': dot substituted for <99>
+\end{verbatim}
+
+\includegraphics{lab1_files/figure-latex/unnamed-chunk-12-1.pdf} Now we
+have a better list of our top frequent words in blue carbon related
+articles.
+
+\hypertarget{transformation-2}{%
+\subsubsection{Transformation \#2}\label{transformation-2}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Clean Words with \textquotesingle{}s and numbers}
+\NormalTok{clean\_paragraph\_2 }\OtherTok{\textless{}{-}}\NormalTok{ clean\_paragraph }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{word =} \FunctionTok{gsub}\NormalTok{(}\StringTok{"\textquotesingle{}s"}\NormalTok{, }\StringTok{\textquotesingle{}\textquotesingle{}}\NormalTok{, word)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{word =} \FunctionTok{gsub}\NormalTok{(}\StringTok{"´s"}\NormalTok{, }\StringTok{\textquotesingle{}\textquotesingle{}}\NormalTok{, word)) }\SpecialCharTok{\%\textgreater{}\%} 
+   \FunctionTok{mutate}\NormalTok{(}\AttributeTok{word =} \FunctionTok{gsub}\NormalTok{(}\StringTok{"’s"}\NormalTok{, }\StringTok{\textquotesingle{}\textquotesingle{}}\NormalTok{, word)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{word =} \FunctionTok{str\_remove\_all}\NormalTok{(word, }\StringTok{"[:digit:]"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(word }\SpecialCharTok{!=} \StringTok{""} \SpecialCharTok{\&}\NormalTok{ word }\SpecialCharTok{!=} \StringTok{"."} \SpecialCharTok{\&}\NormalTok{ word }\SpecialCharTok{!=} \StringTok{","}\NormalTok{)}
+
+
+\CommentTok{\# Count the new frequency of each word}
+\NormalTok{clean\_paragraph\_2 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(word, }\AttributeTok{sort =}\NormalTok{ T) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(n }\SpecialCharTok{\textgreater{}} \DecValTok{14}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{word =} \FunctionTok{reorder}\NormalTok{(word, n)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{reorder}\NormalTok{(word, n), }\AttributeTok{y =}\NormalTok{ n, }\AttributeTok{fill =}\NormalTok{ n }\SpecialCharTok{\textgreater{}=} \DecValTok{25}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{, }\AttributeTok{color =} \StringTok{"gray20"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{coord\_flip}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"gray80"}\NormalTok{, }\StringTok{"lightcoral"}\NormalTok{), }
+                    \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Count \textless{} 25"}\NormalTok{, }\StringTok{"Count \textgreater{}= 25"}\NormalTok{), }
+                    \AttributeTok{name =} \StringTok{"Count"}\NormalTok{)  }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title=} \StringTok{"Frequency of Words in Blue Carbon{-}Related Terms in NYT Articles"}\NormalTok{,}
+       \AttributeTok{subtitle=} \StringTok{"A Text Analysis of Articles Published between 2020 and 2023"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Word"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Count"}\NormalTok{,}
+       \AttributeTok{caption =} \StringTok{"Second Transformation: Removing Possessives and Numerical Characters from Text Data "}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lab1_files/figure-latex/unnamed-chunk-13-1.pdf}
+
+\hypertarget{transformation-3}{%
+\subsubsection{Transformation \#3}\label{transformation-3}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Extract the list of the keywords per article and create a new data frame so we can inner\_join and see what are the key words.}
+\NormalTok{blue\_carbon\_keywords }\OtherTok{\textless{}{-}}\NormalTok{ blue\_carbon\_df }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{unnest}\NormalTok{(response.docs.keywords) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{select}\NormalTok{(value) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{unnest\_tokens}\NormalTok{(word, value) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{distinct}\NormalTok{()}
+  
+
+\NormalTok{clean\_paragraph\_3 }\OtherTok{\textless{}{-}} \FunctionTok{semi\_join}\NormalTok{(clean\_paragraph\_2, blue\_carbon\_keywords, }\AttributeTok{by =} \StringTok{"word"}\NormalTok{)}
+
+\CommentTok{\# Count the new frequency of each word}
+\NormalTok{clean\_paragraph\_3 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(word, }\AttributeTok{sort =}\NormalTok{ T) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(n }\SpecialCharTok{\textgreater{}} \DecValTok{11}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{word =} \FunctionTok{reorder}\NormalTok{(word, n)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{reorder}\NormalTok{(word, n), }\AttributeTok{y =}\NormalTok{ n, }\AttributeTok{fill =}\NormalTok{ n }\SpecialCharTok{\textgreater{}=} \DecValTok{25}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{, }\AttributeTok{color =} \StringTok{"gray20"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{coord\_flip}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"gray80"}\NormalTok{, }\StringTok{"lightcoral"}\NormalTok{), }
+                    \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Count \textless{} 25"}\NormalTok{, }\StringTok{"Count \textgreater{}= 25"}\NormalTok{), }
+                    \AttributeTok{name =} \StringTok{"Count"}\NormalTok{)  }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title=} \StringTok{"Frequency of Words in Blue Carbon{-}Related Terms in NYT Articles"}\NormalTok{,}
+       \AttributeTok{subtitle=} \StringTok{"A Text Analysis of Articles Published between 2020 and 2023"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Word"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Count"}\NormalTok{,}
+       \AttributeTok{caption =} \StringTok{"Third Transformation: Filtering for Relevant Keywords"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lab1_files/figure-latex/unnamed-chunk-14-1.pdf} Thanks
+to this third filter now we have more relevant words (extracted from the
+NYI keywords), and we removed words like; president, coronavirus,
+tuesday, bam. And we added more relevant words such as words, maps,
+carbon.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Recreate the publications per day and word frequency plots using the
+  headlines variable (response.docs.headline.main). Compare the
+  distributions of word frequencies between the first paragraph and
+  headlines. Do you see any difference? (Here you will have fewer lines,
+  but what are the most frequent words)
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{head\_line }\OtherTok{\textless{}{-}} \FunctionTok{names}\NormalTok{(blue\_carbon\_df)[}\DecValTok{21}\NormalTok{]  }\CommentTok{\# The 21 column for the headline}
+
+\CommentTok{\# Creating the df with all words}
+\NormalTok{df\_headline }\OtherTok{\textless{}{-}}\NormalTok{ blue\_carbon\_df }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{unnest\_tokens}\NormalTok{(word, head\_line) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{select}\NormalTok{(}\StringTok{"word"}\NormalTok{)}
+
+\CommentTok{\# Cleaning the irrelevant words}
+\NormalTok{clean\_headline }\OtherTok{\textless{}{-}}\NormalTok{ df\_headline }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{anti\_join}\NormalTok{(stop\_words) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# First transformation "stop\_words"}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{word =} \FunctionTok{gsub}\NormalTok{(}\StringTok{"\textquotesingle{}s"}\NormalTok{, }\StringTok{\textquotesingle{}\textquotesingle{}}\NormalTok{, word)) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\#second transformation}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{word =} \FunctionTok{gsub}\NormalTok{(}\StringTok{"´s"}\NormalTok{, }\StringTok{\textquotesingle{}\textquotesingle{}}\NormalTok{, word)) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\#second transformation}
+   \FunctionTok{mutate}\NormalTok{(}\AttributeTok{word =} \FunctionTok{gsub}\NormalTok{(}\StringTok{"’s"}\NormalTok{, }\StringTok{\textquotesingle{}\textquotesingle{}}\NormalTok{, word)) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\#second transformation}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{word =} \FunctionTok{str\_remove\_all}\NormalTok{(word, }\StringTok{"[:digit:]"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}\CommentTok{\#second transformation}
+  \FunctionTok{filter}\NormalTok{(word }\SpecialCharTok{!=} \StringTok{""} \SpecialCharTok{\&}\NormalTok{ word }\SpecialCharTok{!=} \StringTok{"."} \SpecialCharTok{\&}\NormalTok{ word }\SpecialCharTok{!=} \StringTok{","}\NormalTok{) }\SpecialCharTok{|\textgreater{}} \CommentTok{\#second transformation}
+  \FunctionTok{semi\_join}\NormalTok{(blue\_carbon\_keywords, }\AttributeTok{by =} \StringTok{"word"}\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{semi\_join}\NormalTok{(clean\_paragraph\_3, }\AttributeTok{by =} \StringTok{"word"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Joining, by = "word"
+\end{verbatim}
+
+We started with a data frame containing 3098 words. After removing stop
+words, the data frame was reduced to 1781 words. Then, by removing words
+with apostrophes and commas, we further reduced it to 1731 words. After
+filtering by keywords from the ``response.docs.keywords'' column in the
+NYT dataset, we ended up with a data frame containing 762 words.
+Finally, we filtered the data frame to only retain words that are also
+in the blue\_carbon\_keywords list from exercise \#3, resulting in a
+final data frame of 630 words.
+
+Plot the new graph
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{clean\_headline }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(word, }\AttributeTok{sort =}\NormalTok{ T) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(n }\SpecialCharTok{\textgreater{}} \DecValTok{4}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{word =} \FunctionTok{reorder}\NormalTok{(word, n)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{reorder}\NormalTok{(word, n), }\AttributeTok{y =}\NormalTok{ n, }\AttributeTok{fill =}\NormalTok{ n }\SpecialCharTok{\textgreater{}=} \DecValTok{10}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{, }\AttributeTok{color =} \StringTok{"gray20"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{coord\_flip}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"gray80"}\NormalTok{, }\StringTok{"lightcoral"}\NormalTok{), }
+                    \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Count \textless{} 10"}\NormalTok{, }\StringTok{"Count \textgreater{}= 10"}\NormalTok{), }
+                    \AttributeTok{name =} \StringTok{"Count"}\NormalTok{)  }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title=} \StringTok{"Frequency of Words in Blue Carbon{-}Related Terms in NYT Headlines"}\NormalTok{,}
+       \AttributeTok{subtitle=} \StringTok{"A Text Analysis of Articles Published between 2020 and 2023"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Word"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Count"}\NormalTok{,}
+       \AttributeTok{caption =} \StringTok{"All Transformations"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{lab1_files/figure-latex/unnamed-chunk-16-1.pdf} Now
+there are interesting words in the top of the list like ``election'',
+``biden'', ``california'', and life.
+
+Lets find what are the most common and non common words
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Find the words that are not in common}
+
+\NormalTok{not\_common }\OtherTok{\textless{}{-}} \FunctionTok{anti\_join}\NormalTok{(clean\_paragraph\_3,clean\_headline) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{count}\NormalTok{(word, }\AttributeTok{sort =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{top\_n}\NormalTok{(}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Joining, by = "word"
+## Selecting by n
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{common }\OtherTok{\textless{}{-}} \FunctionTok{inner\_join}\NormalTok{(clean\_paragraph\_3,clean\_headline) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{count}\NormalTok{(word, }\AttributeTok{sort =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{top\_n}\NormalTok{(}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Joining, by = "word"
+## Selecting by n
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(knitr)}
+\FunctionTok{library}\NormalTok{(kableExtra)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'kableExtra'
+## 
+## The following object is masked from 'package:dplyr':
+## 
+##     group_rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{not\_common\_table }\OtherTok{\textless{}{-}} \FunctionTok{kable}\NormalTok{(not\_common, }\AttributeTok{caption =} \StringTok{"Top 5 words in \textquotesingle{}clean\_paragraph\_3\textquotesingle{} not present in \textquotesingle{}clean\_headline\textquotesingle{}"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable\_styling}\NormalTok{(}\StringTok{"striped"}\NormalTok{, }\AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{)}
+
+\NormalTok{common\_table }\OtherTok{\textless{}{-}} \FunctionTok{kable}\NormalTok{(common, }\AttributeTok{caption =} \StringTok{"Top 5 common words in \textquotesingle{}clean\_paragraph\_3\textquotesingle{} and \textquotesingle{}clean\_headline\textquotesingle{}"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable\_styling}\NormalTok{(}\StringTok{"striped"}\NormalTok{, }\AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\# To display the tables}
+\NormalTok{not\_common\_table}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-17}Top 5 words in 'clean_paragraph_3' not present in 'clean_headline'}
+\centering
+\begin{tabular}[t]{l|r}
+\hline
+word & n\\
+\hline
+washington & 19\\
+\hline
+maps & 14\\
+\hline
+deep & 10\\
+\hline
+history & 9\\
+\hline
+news & 9\\
+\hline
+party & 9\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{common\_table}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-17}Top 5 common words in 'clean_paragraph_3' and 'clean_headline'}
+\centering
+\begin{tabular}[t]{l|r}
+\hline
+word & n\\
+\hline
+climate & 1209\\
+\hline
+world & 374\\
+\hline
+change & 325\\
+\hline
+biden & 280\\
+\hline
+election & 272\\
+\hline
+\end{tabular}
+\end{table}
+
+\end{document}

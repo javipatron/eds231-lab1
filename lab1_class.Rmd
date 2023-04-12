@@ -25,7 +25,7 @@ We have to decide which New York Times articles we are interested in examining. 
 
 We'll send a query to the NY Times API using a URL that contains information about the articles we'd like to access.
 
-fromJSON() is a wrapper function that handles our request and the API response. We'll use it to create an object, t, with the results of our query. The flatten = T argument converts from the nested JSON format to an R-friendlier form.
+fromJSON() is a wrapper function that handles our request and the API response. We'll use it to create an object (t), with the results of our query. The flatten = T argument converts from the nested JSON format to an R-friendlier form.
 
 ```{r api, eval = FALSE}
 
@@ -124,7 +124,7 @@ nytDat <- readRDS("nyt_df.rds")
 
 ```{r date-plot}
 nytDat %>%
-  mutate(pubDay=gsub("T.*","",response.docs.pub_date)) %>%
+  mutate(pubDay = gsub("T.*","",response.docs.pub_date)) %>%
   group_by(pubDay) %>%
   summarise(count=n()) %>%
   filter(count >= 2) %>%
@@ -168,7 +168,6 @@ stop_words
 tokenized <- tokenized |> 
   anti_join(stop_words)
 
-
 tokenized |> 
   count(word, sort = T) |> 
   filter(n > 5) |> 
@@ -176,7 +175,6 @@ tokenized |>
   ggplot(aes(n,word)) + 
   geom_col() +
   labs(y= NULL)
-
 
 ```
 

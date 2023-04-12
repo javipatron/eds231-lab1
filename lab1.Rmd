@@ -1,23 +1,350 @@
 ---
-title: "Lab 1: NYT API"
+title: "Lab 1: New York Times API"
 author: "Javier Patrón"
-date: "2023-04-05"
+date: "2023-04-11"
 output: html_document
 ---
 
+# Assignment (Due Tuesday 4/11 11:59pm)
 
-## Assignment (Due Tuesday 4/11 11:59pm)
+```{r}
+library(jsonlite) #convert results from API queries into R-friendly formats 
+library(tidyverse)
+library(tidytext) #text data management and analysis
+library(ggplot2) #plot word frequencies and publication dates```
+```
 
-1.  Create a free New York Times account (<https://developer.nytimes.com/get-started>)
+### 1. Create a free New York Times account (<https://developer.nytimes.com/get-started>)
 
-2.  Pick an interesting environmental key word(s) and use the {jsonlite} package to query the API. Pick something high profile enough and over a large enough time frame that your query yields enough articles for an interesting examination.
+```{r}
+# Create a APP and extract your API_Key
+API_key <- "qDJ3MFOJIru3xSAbeTwn3l3NMZGjTYP8"
+
+```
+
+### 2. Pick an interesting environmental key word(s) and use the {jsonlite} package to query the API. Pick something high profile enough and over a large enough time frame that your query yields enough articles for an interesting examination.
+
+Option 1) Extract the information through the API of the New York Times webpage
+
+```{r}
+
+# #create the query url
+# url <- paste("https://api.nytimes.com/svc/search/v2/articlesearch.json?begin_date=20221201&end_date=20230410&q=blue%20carbon&api-key", API_key, sep ="")
+# 
+# #send the request, receive the response, and flatten
+# t <- fromJSON(url, flatten = T)
+# 
+# #Create a df with the extracted list
+# df_t <- data.frame(t)
+
+```
+
+Option 2) #Extracting the information through a workaround seen in class
+
+```{r}
+# string <- "blue$carbon" # Need to use $ to string together separate terms 
+# 
+# begin_date <- "20200101"
+# end_date <- "20230410"
+# 
+# #construct the query url using API operators
+# baseurl <- paste0("http://api.nytimes.com/svc/search/v2/articlesearch.json?q=",string,"&begin_date=",begin_date,"&end_date=",end_date,"&facet_filter=true&api-key=",API_key, sep="")
+
+```
+
+```{r}
+# initialQuery <- fromJSON(baseurl)
+# 
+# maxPages <- round((initialQuery$response$meta$hits[1]/10) -1) # 20 pages of results
+# pages <- list()
+# 
+# #loop
+# for(i in 0:maxPages){
+#   nytSearch <- fromJSON(paste0(baseurl, "&page=", i), flatten = TRUE) %>% data.frame() 
+#   message("Retrieving page ", i) # This is to see how the loop is going
+#   pages[[i+1]] <- nytSearch 
+#   Sys.sleep(20) #Pauses the request to ask for the desired information to the API
+# }
+# 
+# # Eliminate the last incomplete article
+# pages <- pages[1:37]
+
+```
+
+We converted each returned JSON object into a data frame. This RDS can be used in case you need to re-run this code to your environment
+
+```{r}
+#saveRDS(pages, "pages.rds")
+```
+
+Load the pre-constructed blue_carbon_df so you can follow along.
+
+```{r}
+# Load the pre-constructed nytDat so you can follow along.
+pages <- readRDS("pages.rds")
+```
+
+```{r}
+# Create a data frame with all the 370 articles
+blue_carbon_df <- do.call("bind_rows", pages )
+
+# Eliminate the articles that dont have any NYT department
+blue_carbon_df <- blue_carbon_df[nchar(blue_carbon_df$response.docs.news) > 0, ]
+
+```
+
+### 3) Recreate the publications per day and word frequency plots using the first paragraph. This time filter on the response.docs.news_desk variable to winnow out irrelevant results.
+
+```{r}
+#Find what are the TOP NYT departments related to articles that have the string Blue Carbon
+blue_carbon_df %>%
+  group_by(NYT_dept = response.docs.news_desk) %>%
+  summarise(count=n()) %>%
+  filter(count >= 5) %>%
+  ggplot() +
+  geom_bar(aes(x=reorder(NYT_dept, count), y=count, fill = count >= 30), 
+           stat= "identity", color = "gray20") +
+  coord_flip() +
+  scale_fill_manual(values = c("gray90", "lightcoral"), 
+                    labels = c("Count < 30", "Count >= 30"), 
+                    name = "Count") +
+  labs(title = "Number of NYT Articles by Department",
+       subtitle = "Articles Published between 2020 and 2023",
+       caption = "String: 'Blue Carbon'",
+       x = "News Desk",
+       y = "Count")
+
+```
+
+Graph the dates on which the Articles where released
+
+```{r}
+# Identify the dates on which NYT articles containing the phrase "blue carbon" were most frequently published.
+blue_carbon_df %>%
+  mutate(pubDay = gsub("T.*","",response.docs.pub_date)) %>%
+  group_by(pubDay) %>%
+  summarise(count=n()) %>%
+  filter(count >=3) |> 
+  ggplot() +
+  geom_bar(aes(x=reorder(pubDay, count), y=count, fill = count >= 5), 
+           stat="identity", color = "gray20") +
+  scale_fill_manual(values = c("gray50", "lightblue"), 
+                    labels = c("Count < 5", "Count >= 5"), 
+                    name = "Count") +
+  coord_flip() +
+  labs(title = "Dates with Highest Number of NYT Articles containing 'blue carbon'",
+       subtitle = "Articles Published between 2020 and 2023",
+       x = "Released Date",
+       y = "Count")
 
 
+```
 
-3.  Recreate the publications per day and word frequency plots using the first paragraph.  This time filter on the response.docs.news_desk variable to winnow out irrelevant results.
+### Text Transformations
 
--   Make some (at least 3) transformations to the corpus (add context-specific stopword(s), stem a key term and its variants, remove numbers)
+Make some (at least 3) transformations to the corpus (add context-specific stopword(s), stem a key term and its variants, remove numbers)
 
-4.  Recreate the publications per day and word frequency plots using the headlines variable (response.docs.headline.main). Compare the distributions of word frequencies between the first paragraph and headlines. Do you see any difference? (Here you will have fewer lines, but what are the most frequent words)
+```{r}
+
+lead_paragraph <- names(blue_carbon_df)[6] # The 6th column for the lead paragraph
+
+# Create new Data Frames with the all the words of the lead paragraph section.
+df_paragraph <- blue_carbon_df |>
+  unnest_tokens(word, lead_paragraph) |> 
+  select("word")
+
+# Create a graph with the most common words
+df_paragraph %>%
+  count(word, sort = T) %>%
+  filter(n > 75) %>%
+  mutate(word = reorder(word, n)) %>%
+  ggplot(aes(x = reorder(word, n), y = n, fill = n >= 400)) +
+  geom_bar(stat = "identity", color = "gray20") +
+  coord_flip() +
+  scale_fill_manual(values = c("gray80", "lightcoral"), 
+                    labels = c("Count < 400", "Count >= 400"), 
+                    name = "Count") +
+  labs(title= "Frequency of Words in Blue Carbon-Related Terms in NYT Articles",
+       subtitle= "Articles Published between 2020 and 2023",
+       x = "Word",
+       y = "Count",
+       caption = "NYT API") 
+```
+
+As we can see in this graph the most common words are pretty irrelevant. That why we need to do some transformations.
+
+### Transformation #1
+
+Make the first transformation and delete the words that are not helpful
+
+```{r}
+# Using the Data Frame called "stop_words"
+data(stop_words)
+stop_words
+
+clean_paragraph <- df_paragraph |> 
+  anti_join(stop_words)
+
+clean_paragraph %>%
+  count(word, sort = T) %>%
+  filter(n > 15) %>%
+  mutate(word = reorder(word, n)) %>%
+  ggplot(aes(x = reorder(word, n), y = n, fill = n >= 25)) +
+  geom_bar(stat = "identity", color = "gray20") +
+  coord_flip() +
+  scale_fill_manual(values = c("gray80", "lightcoral"), 
+                    labels = c("Count < 25", "Count >= 25"), 
+                    name = "Count") +
+  labs(title= "Frequency of Words in Blue Carbon-Related Terms in NYT Articles",
+       subtitle= "Articles Published between 2020 and 2023",
+       x = "Word",
+       y = "Count",
+       caption = "First Transformation: stopword removal") 
+
+```
+
+Now we have a better list of our top frequent words in blue carbon related articles.
+
+### Transformation #2
+
+```{r}
+# Clean Words with 's and numbers
+clean_paragraph_2 <- clean_paragraph %>%
+  mutate(word = gsub("'s", '', word)) %>% 
+  mutate(word = gsub("´s", '', word)) %>% 
+   mutate(word = gsub("’s", '', word)) %>%
+  mutate(word = str_remove_all(word, "[:digit:]")) %>%
+  filter(word != "" & word != "." & word != ",")
 
 
+# Count the new frequency of each word
+clean_paragraph_2 %>%
+  count(word, sort = T) %>%
+  filter(n > 16) %>%
+  mutate(word = reorder(word, n)) %>%
+  ggplot(aes(x = reorder(word, n), y = n, fill = n >= 25)) +
+  geom_bar(stat = "identity", color = "gray20") +
+  coord_flip() +
+  scale_fill_manual(values = c("gray80", "lightcoral"), 
+                    labels = c("Count < 25", "Count >= 25"), 
+                    name = "Count")  +
+  labs(title= "Frequency of Words in Blue Carbon-Related Terms in NYT Articles",
+       subtitle= "Articles Published between 2020 and 2023",
+       x = "Word",
+       y = "Count",
+       caption = "Second Transformation: Removing Possessives and Numerical Characters from Text Data ")
+
+```
+
+### Transformation #3
+
+```{r}
+# Extract the list of the keywords per article and create a new data frame so we can inner_join and see what are the key words.
+blue_carbon_keywords <- blue_carbon_df %>%
+  unnest(response.docs.keywords) |> 
+  select(value) |> 
+  unnest_tokens(word, value) |> 
+  distinct()
+  
+
+clean_paragraph_3 <- semi_join(clean_paragraph_2, blue_carbon_keywords, by = "word")
+
+# Count the new frequency of each word
+clean_paragraph_3 %>%
+  count(word, sort = T) %>%
+  filter(n > 14) %>%
+  mutate(word = reorder(word, n)) %>%
+  ggplot(aes(x = reorder(word, n), y = n, fill = n >= 25)) +
+  geom_bar(stat = "identity", color = "gray20") +
+  coord_flip() +
+  scale_fill_manual(values = c("gray80", "lightcoral"), 
+                    labels = c("Count < 25", "Count >= 25"), 
+                    name = "Count")  +
+  labs(title= "Frequency of Words in Blue Carbon-Related Terms in NYT Articles",
+       subtitle= "Articles Published between 2020 and 2023",
+       x = "Word",
+       y = "Count",
+       caption = "Third Transformation: Filtering for Relevant Keywords")
+```
+
+Thanks to this third filter now we have more relevant words (extracted from the NYI keywords), and we removed words like; president, coronavirus, tuesday, bam. And we added more relevant words such as words, maps, carbon.
+
+### 4) Recreate the publications per day and word frequency plots using the headlines variable (response.docs.headline.main). Compare the distributions of word frequencies between the first paragraph and headlines. Do you see any difference? (Here you will have fewer lines, but what are the most frequent words)
+
+```{r}
+
+head_line <- names(blue_carbon_df)[21]  # The 21 column for the headline
+
+# Creating the df with all words
+df_headline <- blue_carbon_df |>
+  unnest_tokens(word, head_line) |> 
+  select("word")
+
+# Cleaning the irrelevant words
+clean_headline <- df_headline |> 
+  anti_join(stop_words) %>% # First transformation "stop_words"
+  mutate(word = gsub("'s", '', word)) %>% #second transformation
+  mutate(word = gsub("´s", '', word)) %>% #second transformation
+   mutate(word = gsub("’s", '', word)) %>% #second transformation
+  mutate(word = str_remove_all(word, "[:digit:]")) %>%#second transformation
+  filter(word != "" & word != "." & word != ",") |> #second transformation
+  semi_join(blue_carbon_keywords, by = "word") |> #third transformation
+  semi_join(clean_paragraph_3, by = "word") #third transformation
+
+```
+
+We started with a data frame containing 3098 words. After removing stop words, the data frame was reduced to 1781 words. Then, by removing words with apostrophes and commas, we further reduced it to 1731 words. After filtering by keywords from the "response.docs.keywords" column in the NYT dataset, we ended up with a data frame containing 762 words. Finally, we filtered the data frame to only retain words that are also in the blue_carbon_keywords list from exercise #3, resulting in a final data frame of 630 words.
+
+Plot the new graph
+
+```{r}
+
+clean_headline %>%
+  count(word, sort = T) %>%
+  filter(n > 5) %>%
+  mutate(word = reorder(word, n)) %>%
+  ggplot(aes(x = reorder(word, n), y = n, fill = n >= 10)) +
+  geom_bar(stat = "identity", color = "gray20") +
+  coord_flip() +
+  scale_fill_manual(values = c("gray80", "lightcoral"), 
+                    labels = c("Count < 10", "Count >= 10"), 
+                    name = "Count")  +
+  labs(title= "Frequency of Words in Blue Carbon-Related Terms in NYT Headlines",
+       subtitle= "A Text Analysis of Articles Published between 2020 and 2023",
+       x = "Word",
+       y = "Count",
+       caption = "All Transformations")
+
+```
+
+Now there are interesting words in the top of the list like "election", "biden", "california", and life.
+
+Lets find what are the most common and non common words
+
+```{r}
+#Find the words that are not in common
+
+not_common <- anti_join(clean_paragraph_3,clean_headline) |> 
+  count(word, sort = TRUE) %>%
+  top_n(6)
+
+common <- inner_join(clean_paragraph_3,clean_headline) |> 
+  count(word, sort = TRUE) %>%
+  top_n(5)
+
+library(knitr)
+library(kableExtra)
+
+not_common_table <- kable(not_common, caption = "Top 6 words in 'clean_paragraph_3' not present in 'clean_headline'") %>%
+  kable_styling("striped")
+
+
+common_table <- kable(common, caption = "Top 5 common words in 'clean_paragraph_3' and 'clean_headline'") %>%
+  kable_styling("striped")
+
+# To display the tables
+not_common_table
+common_table
+
+
+```
